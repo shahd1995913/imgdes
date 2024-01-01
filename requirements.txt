@@ -1,4 +1,5 @@
 pytorch
+Blip
 transformers
 ipywidgets
 streamlit
