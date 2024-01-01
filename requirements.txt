@@ -1,3 +1,4 @@
+pytorch
 transformers
 ipywidgets
 streamlit
