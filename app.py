@@ -1,6 +1,6 @@
 import streamlit as st
-from PIL import Image
 from transformers import BlipProcessor, BlipForConditionalGeneration
+from PIL import Image
 import io
 
 # Load BLIP model and processor
@@ -12,31 +12,25 @@ def generate_caption(image):
     inputs = processor(images=image, return_tensors="pt", padding=True)
     out = model.generate(**inputs)
     description = processor.decode(out[0], skip_special_tokens=True)
+
     return description
 
 def main():
-    st.title("BLIP Image Captioning App")
-    st.write("Upload an image, and the model will generate a caption.")
+    st.title("Image Captioning with BLIP Model")
 
-    uploaded_file = st.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
+    # File Upload
+    uploaded_file = st.file_uploader("Choose an image", type=['jpg', 'jpeg', 'png'])
 
     if uploaded_file is not None:
-        # Load the image
-        image = Image.open(uploaded_file)
-
         # Display the uploaded image
-        st.image(image, caption="Uploaded Image", use_column_width=True)
-
-        # Convert the PIL image to bytes
-        image_bytes = io.BytesIO()
-        image.save(image_bytes, format="PNG")
+        image = Image.open(uploaded_file)
+        st.image(image, caption='Uploaded Image', use_column_width=True)
 
         # Generate caption
-        description = generate_caption(image_bytes.getvalue())
+        description = generate_caption(image)
 
-        # Display the generated caption
-        st.subheader("Generated Caption:")
-        st.write(description)
+        # Display the caption
+        st.write("Description:", description)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
