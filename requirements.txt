@@ -2,6 +2,5 @@ transformers
 ipywidgets
 streamlit
 keras
-torch
 torchvision
 torchaudio
