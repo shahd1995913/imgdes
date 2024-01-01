@@ -1,7 +1,6 @@
 import streamlit as st
 from transformers import BlipProcessor, BlipForConditionalGeneration
 from PIL import Image
-import io
 
 # Load BLIP model and processor
 processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
@@ -12,7 +11,6 @@ def generate_caption(image):
     inputs = processor(images=image, return_tensors="pt", padding=True)
     out = model.generate(**inputs)
     description = processor.decode(out[0], skip_special_tokens=True)
-
     return description
 
 def main():
