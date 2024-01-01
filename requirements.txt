@@ -1,0 +1,6 @@
+transformers
+ipywidgets
+Pillow
+numpy
+streamlit
+keras
