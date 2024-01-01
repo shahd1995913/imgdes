@@ -28,7 +28,7 @@ def main():
         #  description = generate_caption(image)
 
         # Display the caption
-        st.write("Description:", description)
+        #st.write("Description:", description)
 
 if __name__ == '__main__':
     main()
