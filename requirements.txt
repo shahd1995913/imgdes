@@ -4,3 +4,6 @@ Pillow
 numpy
 streamlit
 keras
+torch
+torchvision
+torchaudio
