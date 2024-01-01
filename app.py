@@ -25,7 +25,7 @@ def main():
         st.image(image, caption='Uploaded Image', use_column_width=True)
 
         # Generate caption
-        description = generate_caption(image)
+        #  description = generate_caption(image)
 
         # Display the caption
         st.write("Description:", description)
